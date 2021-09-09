@@ -61,19 +61,24 @@ function friend(friends){
 // accum("cwAt") -> "C-Ww-Aaa-Tttt"
 // The parameter of accum is a string which includes only letters from a..z and A..Z.
 
-let funk = (s)=> {
+let accum = (s)=> {
  
   let arr = [];
   
   [...s].forEach ((letra, index)=>{
     for (let i = -1; i< index; i++) {
-      (i == -1) ? arr.push(letra.toUpperCase()) : arr.push(letra);
+      (i == -1) ? arr.push(letra.toUpperCase()) : arr.push(letra.toLowerCase());
     }
-    
+    (index < s.length -1 &&  arr.push("-"));
   })
+  
+  const str = arr.join('')
   
   
    
-   return arr.toString();
+   return str
  }
-  
+
+ function accum(s) {
+  return s.split('').map((c, i) => (c.toUpperCase() + c.toLowerCase().repeat(i))).join('-');
+}
