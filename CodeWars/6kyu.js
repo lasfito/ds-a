@@ -88,3 +88,29 @@ function deleteNth(arr,n){
     }
     return arr;
   }
+
+  // Complete the solution so that the function will break up camel casing, using a space between words.
+
+/* Example
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  "" */
+
+function solution(string) {
+  let newStr = "";
+[...string].forEach((letra)=>{
+  if (letra === letra.toUpperCase()) {
+    newStr += ` ${letra}`
+  } else {
+    newStr+= letra;
+  }
+})
+
+return newStr
+}
+
+// complete the function
+function solution(string) {
+  return(string.replace(/([A-Z])/g, ' $1'));
+
+}
